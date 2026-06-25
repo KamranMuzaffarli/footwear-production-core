@@ -310,12 +310,206 @@ values
 -- Shoe Last Master Data
 -- ======================================================================
 
-Сделать коммит после заполнения раздела
+insert into shoe_lasts (
+    last_code,
+    last_name,
+    last_type,
+    gender_category,
+    size_system,
+    base_size,
+    toe_shape,
+    description,
+    is_active
+)
+values
+    (
+        '302-T1',
+        'Last 302-T1',
+        'casual',
+        'men',
+        'EU',
+        42,
+        'round',
+        'Men''s casual last with round toe shape, suitable for moccasin-style footwear.',
+        true
+    ),
+    (
+        '0537',
+        'Last 0537',
+        'casual',
+        'men',
+        'EU',
+        42,
+        'almond',
+        'Men''s casual last with almond toe shape.',
+        true
+    ),
+    (
+        '1034',
+        'Last 1034',
+        'casual',
+        'men',
+        'EU',
+        42,
+        'almond',
+        'Men''s casual last with almond toe shape.',
+        true
+    ),
+    (
+        '1191-E1',
+        'Last 1191-E1',
+        'sport',
+        'men',
+        'EU',
+        42,
+        'round',
+        'Men''s sport last with round toe shape.',
+        true
+    ),
+    (
+        '3816',
+        'Last 3816',
+        'classic',
+        'men',
+        'EU',
+        42,
+        'almond',
+        'Men''s classic last with almond toe shape.',
+        true
+    ),
+    (
+        '5055-T1',
+        'Last 5055-T1',
+        'sport',
+        'men',
+        'EU',
+        42,
+        'semi_round',
+        'Men''s sport last with semi-round toe shape.',
+        true
+    ),
+    (
+        'E009',
+        'Last E009',
+        'boot',
+        'men',
+        'EU',
+        42,
+        'round',
+        'Men''s boot last with round toe shape.',
+        true
+    ),
+    (
+        'E011',
+        'Last E011',
+        'boot',
+        'kids',
+        'EU',
+        34,
+        'round',
+        'Kids'' boot last with round toe shape.',
+        true
+    ),
+    (
+        '5161397',
+        'Kreps',
+        'comfort',
+        'women',
+        'EU',
+        38,
+        'round',
+        'Women''s comfort last with round toe shape.',
+        true
+    );
 
-✓
+insert into shoe_last_sizes (
+    shoe_last_id,
+    size_value,
+    heel_height_mm,
+    instep_height_mm,
+    ball_girth_mm,
+    waist_girth_mm,
+    last_length_mm,
+    is_active
+)
+select
+    sl.shoe_last_id,
+    v.size_value,
+    null,
+    null,
+    null,
+    null,
+    null,
+    true
+from (
+    values
+        ('302-T1', 39),
+        ('302-T1', 40),
+        ('302-T1', 41),
+        ('302-T1', 42),
+        ('302-T1', 43),
+        ('302-T1', 44),
 
-shoe_lasts
-shoe_last_sizes
+        ('0537', 40),
+        ('0537', 41),
+        ('0537', 42),
+        ('0537', 43),
+        ('0537', 44),
+
+        ('1034', 37),
+        ('1034', 38),
+        ('1034', 39),
+        ('1034', 40),
+        ('1034', 41),
+        ('1034', 42),
+        ('1034', 43),
+        ('1034', 44),
+
+        ('1191-E1', 36),
+        ('1191-E1', 37),
+        ('1191-E1', 38),
+        ('1191-E1', 39),
+        ('1191-E1', 40),
+        ('1191-E1', 41),
+        ('1191-E1', 42),
+        ('1191-E1', 43),
+        ('1191-E1', 44),
+
+        ('3816', 39),
+        ('3816', 40),
+        ('3816', 41),
+        ('3816', 42),
+        ('3816', 43),
+        ('3816', 44),
+
+        ('5055-T1', 39),
+        ('5055-T1', 40),
+        ('5055-T1', 41),
+        ('5055-T1', 42),
+        ('5055-T1', 43),
+        ('5055-T1', 44),
+
+        ('E009', 39),
+        ('E009', 40),
+        ('E009', 41),
+        ('E009', 42),
+        ('E009', 43),
+        ('E009', 44),
+
+        ('E011', 32),
+        ('E011', 33),
+        ('E011', 34),
+        ('E011', 35),
+        ('E011', 36),
+
+        ('5161397', 36),
+        ('5161397', 37),
+        ('5161397', 38),
+        ('5161397', 39),
+        ('5161397', 40)
+) as v(last_code, size_value)
+join shoe_lasts sl
+    on sl.last_code = v.last_code;
 
 -- ======================================================================
 -- Material Master Data

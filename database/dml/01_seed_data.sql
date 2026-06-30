@@ -515,18 +515,79 @@ join shoe_lasts sl
 -- Material Master Data
 -- ======================================================================
 
-Сделать коммит после заполнения раздела
+Сделать коммит после заполнения каждой таблицы
 
 ✓
 
-materials
+materials ✓
 material_attribute_values
+
+insert into materials (
+    material_category_id,
+    material_code,
+    material_name,
+    unit_of_measure,
+    description,
+    is_active
+)
+select
+    mc.material_category_id,
+    v.material_code,
+    v.material_name,
+    v.unit_of_measure,
+    v.description,
+    true
+from (
+    values
+        ('leather', 'chrome_tanned_leather', 'Chrome Tanned Leather', 'sq_dm', 'Chrome tanned leather used for footwear uppers and other leather components.'),
+        ('leather', 'vegetable_tanned_leather', 'Vegetable Tanned Leather', 'sq_dm', 'Vegetable tanned leather used for structured leather footwear components.'),
+        ('leather', 'oil_tanned_leather', 'Oil Tanned Leather', 'sq_dm', 'Oil tanned leather used for durable and flexible footwear components.'),
+        ('suede', 'suede', 'Suede', 'sq_dm', 'Suede leather material used for uppers and decorative footwear parts.'),
+        ('leather', 'nubuck', 'Nubuck', 'sq_dm', 'Nubuck leather material used for footwear uppers.'),
+        ('suede', 'synthetic_suede', 'Synthetic Suede', 'meter', 'Synthetic suede material used for upper or decorative footwear parts.'),
+        ('leather', 'synthetic_leather', 'Synthetic Leather', 'meter', 'Synthetic leather material used as an artificial leather alternative.'),
+        ('textile', 'textile_upper_fabric', 'Textile Upper Fabric', 'meter', 'Textile fabric used for footwear uppers.'),
+
+        ('lining_material', 'sheep_lining_leather', 'Sheep Lining Leather', 'sq_dm', 'Sheep leather used for footwear lining.'),
+        ('lining_material', 'goat_lining_leather', 'Goat Lining Leather', 'sq_dm', 'Goat leather used for footwear lining.'),
+        ('lining_material', 'dense_textile_lining', 'Dense Textile Lining', 'meter', 'Dense textile material used as footwear lining.'),
+        ('lining_material', 'textile_lining', 'Textile Lining', 'meter', 'Textile material used for inner footwear lining.'),
+        ('lining_material', 'natural_fur_lining', 'Natural Fur Lining', 'meter', 'Natural fur material used for warm footwear lining.'),
+        ('lining_material', 'artificial_fur_lining', 'Artificial Fur Lining', 'meter', 'Artificial fur material used for warm footwear lining.'),
+
+        ('reinforcement_material', 'solvent_activated_reinforcement_sheet', 'Solvent-Activated Reinforcement Sheet', 'sheet', 'Solvent-activated sheet material used for forming structural footwear components such as toe puffs and heel counters.'),
+        ('reinforcement_material', 'thermoplastic_reinforcement_sheet', 'Thermoplastic Reinforcement Sheet', 'sheet', 'Thermoplastic sheet material activated by heat and used for forming structural footwear components such as toe puffs and heel counters.'),
+        ('reinforcement_material', 'backing_fabric', 'Backing Fabric', 'meter', 'Fabric used as a backing or reinforcement layer to stabilize footwear materials during upper assembly and production.'),
+        ('reinforcement_material', 'reinforcement_tape', 'Reinforcement Tape', 'meter', 'Tape used to reinforce and stabilize footwear materials and components, preventing stretching and improving structural strength.'),
+        
+        ('adhesive', 'chloroprene_adhesive', 'Chloroprene Adhesive', 'liter', 'Contact adhesive based on chloroprene rubber, used for bonding leather, rubber, textiles, and related footwear materials.'),
+        ('adhesive', 'polyurethane_adhesive', 'Polyurethane Adhesive', 'liter', 'Adhesive based on polyurethane, commonly used for bonding soles and other high-strength footwear components.'),
+        ('adhesive', 'rubber_adhesive', 'Rubber Adhesive', 'liter', 'Adhesive based on natural or synthetic rubber, used for temporary bonding, upper assembly, lining attachment, and general footwear production operations.'),
+
+        ('thread', 'waxed_thread', 'Waxed Thread', 'spool', 'Waxed thread used for stitching footwear components.'),
+        ('thread', 'polyester_thread', 'Polyester Thread', 'spool', 'Polyester thread used for stitching footwear components.'),
+
+        ('hardware', 'shoe_lace', 'Shoe Lace', 'pair', 'Shoe lace used for footwear closure.'),
+        ('textile', 'elastic_band', 'Elastic Band', 'meter', 'Elastic band used to provide stretch and flexibility in footwear components, improving fit and comfort.'),
+        ('hardware', 'shoe_nails', 'Shoe Nails', 'kg', 'Shoe nails used in footwear production.'),
+
+        ('padding_material', 'dense_foam_material', 'Dense Foam Material', 'meter', 'Dense foam material used for padding, cushioning, and support in footwear components.'),
+        ('padding_material', 'soft_foam_sheet', 'Soft Foam Sheet', 'sheet', 'Soft foam sheet material used for padding and cushioning upper footwear components.')
+) as v(
+    material_category_code,
+    material_code,
+    material_name,
+    unit_of_measure,
+    description
+)
+join material_categories mc
+    on mc.material_category_code = v.material_category_code;
 
 -- ======================================================================
 -- Shoe Model Master Data
 -- ======================================================================
 
-Сделать коммит после заполнения раздела
+Сделать коммит после заполнения каждой таблицы
 
 ✓
 
@@ -537,7 +598,7 @@ shoe_model_classes
 -- Production Composition Data
 -- ======================================================================
 
-Сделать коммит после заполнения раздела
+Сделать коммит после заполнения каждой таблицы
 
 ✓
 

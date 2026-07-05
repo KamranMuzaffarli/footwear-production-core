@@ -515,13 +515,6 @@ join shoe_lasts sl
 -- Material Master Data
 -- ======================================================================
 
-Сделать коммит после заполнения каждой таблицы
-
-✓
-
-materials ✓
-material_attribute_values
-
 insert into materials (
     material_category_id,
     material_code,
@@ -539,40 +532,40 @@ select
     true
 from (
     values
-        ('leather', 'chrome_tanned_leather', 'Chrome Tanned Leather', 'sq_dm', 'Chrome tanned leather used for footwear uppers and other leather components.'),
-        ('leather', 'vegetable_tanned_leather', 'Vegetable Tanned Leather', 'sq_dm', 'Vegetable tanned leather used for structured leather footwear components.'),
-        ('leather', 'oil_tanned_leather', 'Oil Tanned Leather', 'sq_dm', 'Oil tanned leather used for durable and flexible footwear components.'),
-        ('suede', 'suede', 'Suede', 'sq_dm', 'Suede leather material used for uppers and decorative footwear parts.'),
-        ('leather', 'nubuck', 'Nubuck', 'sq_dm', 'Nubuck leather material used for footwear uppers.'),
-        ('suede', 'synthetic_suede', 'Synthetic Suede', 'meter', 'Synthetic suede material used for upper or decorative footwear parts.'),
-        ('leather', 'synthetic_leather', 'Synthetic Leather', 'meter', 'Synthetic leather material used as an artificial leather alternative.'),
-        ('textile', 'textile_upper_fabric', 'Textile Upper Fabric', 'meter', 'Textile fabric used for footwear uppers.'),
+        ('leather', 'black_chrome_tanned_leather_1_4', 'Black Chrome Tanned Leather 1.4 mm', 'sq_dm', 'Black chrome tanned leather used for footwear uppers and other leather components.'),
+        ('leather', 'natural_vegetable_tanned_leather_2_0', 'Natural Vegetable Tanned Leather 2.0 mm', 'sq_dm', 'Natural vegetable tanned leather used for structured leather footwear components.'),
+        ('leather', 'brown_oil_tanned_leather_1_8', 'Brown Oil Tanned Leather 1.8 mm', 'sq_dm', 'Brown oil tanned leather used for durable and flexible footwear components.'),
+        ('suede', 'black_suede_1_2', 'Black Suede 1.2 mm', 'sq_dm', 'Black suede leather material used for uppers and decorative footwear parts.'),
+        ('leather', 'brown_nubuck_1_4', 'Brown Nubuck 1.4 mm', 'sq_dm', 'Brown nubuck leather material used for footwear uppers.'),
+        ('suede', 'black_synthetic_suede', 'Black Synthetic Suede', 'meter', 'Black synthetic suede material used for upper or decorative footwear parts.'),
+        ('leather', 'black_synthetic_leather_1_0', 'Black Synthetic Leather 1.0 mm', 'meter', 'Black synthetic leather material used as an artificial leather alternative.'),
+        ('textile', 'black_textile_upper_fabric', 'Black Textile Upper Fabric', 'meter', 'Black textile fabric used for footwear uppers.'),
 
-        ('lining_material', 'sheep_lining_leather', 'Sheep Lining Leather', 'sq_dm', 'Sheep leather used for footwear lining.'),
-        ('lining_material', 'goat_lining_leather', 'Goat Lining Leather', 'sq_dm', 'Goat leather used for footwear lining.'),
-        ('lining_material', 'dense_textile_lining', 'Dense Textile Lining', 'meter', 'Dense textile material used as footwear lining.'),
-        ('lining_material', 'textile_lining', 'Textile Lining', 'meter', 'Textile material used for inner footwear lining.'),
+        ('lining_material', 'beige_sheep_lining_leather_0_8', 'Beige Sheep Lining Leather 0.8 mm', 'sq_dm', 'Beige sheep leather used for footwear lining.'),
+        ('lining_material', 'natural_goat_lining_leather_0_8', 'Natural Goat Lining Leather 0.8 mm', 'sq_dm', 'Natural goat leather used for footwear lining.'),
+        ('lining_material', 'black_dense_textile_lining', 'Black Dense Textile Lining', 'meter', 'Black dense textile material used as footwear lining.'),
+        ('lining_material', 'beige_textile_lining', 'Beige Textile Lining', 'meter', 'Beige textile material used for inner footwear lining.'),
         ('lining_material', 'natural_fur_lining', 'Natural Fur Lining', 'meter', 'Natural fur material used for warm footwear lining.'),
-        ('lining_material', 'artificial_fur_lining', 'Artificial Fur Lining', 'meter', 'Artificial fur material used for warm footwear lining.'),
+        ('lining_material', 'black_artificial_fur_lining', 'Black Artificial Fur Lining', 'meter', 'Black artificial fur material used for warm footwear lining.'),
 
-        ('reinforcement_material', 'solvent_activated_reinforcement_sheet', 'Solvent-Activated Reinforcement Sheet', 'sheet', 'Solvent-activated sheet material used for forming structural footwear components such as toe puffs and heel counters.'),
-        ('reinforcement_material', 'thermoplastic_reinforcement_sheet', 'Thermoplastic Reinforcement Sheet', 'sheet', 'Thermoplastic sheet material activated by heat and used for forming structural footwear components such as toe puffs and heel counters.'),
-        ('reinforcement_material', 'backing_fabric', 'Backing Fabric', 'meter', 'Fabric used as a backing or reinforcement layer to stabilize footwear materials during upper assembly and production.'),
-        ('reinforcement_material', 'reinforcement_tape', 'Reinforcement Tape', 'meter', 'Tape used to reinforce and stabilize footwear materials and components, preventing stretching and improving structural strength.'),
-        
+        ('reinforcement_material', 'solvent_activated_reinforcement_sheet_1_0', 'Solvent-Activated Reinforcement Sheet 1.0 mm', 'sheet', 'Solvent-activated sheet material used for forming structural footwear components such as toe puffs and heel counters.'),
+        ('reinforcement_material', 'thermoplastic_reinforcement_sheet_0_6', 'Thermoplastic Reinforcement Sheet 0.6 mm', 'sheet', 'Thermoplastic sheet material activated by heat and used for forming structural footwear components such as toe puffs and heel counters.'),
+        ('reinforcement_material', 'white_backing_fabric', 'White Backing Fabric', 'meter', 'White fabric used as a backing or reinforcement layer to stabilize footwear materials during upper assembly and production.'),
+        ('reinforcement_material', 'black_reinforcement_tape', 'Black Reinforcement Tape', 'meter', 'Black tape used to reinforce and stabilize footwear materials and components, preventing stretching and improving structural strength.'),
+
         ('adhesive', 'chloroprene_adhesive', 'Chloroprene Adhesive', 'liter', 'Contact adhesive based on chloroprene rubber, used for bonding leather, rubber, textiles, and related footwear materials.'),
         ('adhesive', 'polyurethane_adhesive', 'Polyurethane Adhesive', 'liter', 'Adhesive based on polyurethane, commonly used for bonding soles and other high-strength footwear components.'),
         ('adhesive', 'rubber_adhesive', 'Rubber Adhesive', 'liter', 'Adhesive based on natural or synthetic rubber, used for temporary bonding, upper assembly, lining attachment, and general footwear production operations.'),
 
-        ('thread', 'waxed_thread', 'Waxed Thread', 'spool', 'Waxed thread used for stitching footwear components.'),
-        ('thread', 'polyester_thread', 'Polyester Thread', 'spool', 'Polyester thread used for stitching footwear components.'),
+        ('thread', 'black_waxed_thread_6', 'Black Waxed Thread No. 6', 'spool', 'Black waxed thread used for stitching footwear components.'),
+        ('thread', 'black_polyester_thread_40', 'Black Polyester Thread No. 40', 'spool', 'Black polyester thread used for stitching footwear components.'),
 
-        ('hardware', 'shoe_lace', 'Shoe Lace', 'pair', 'Shoe lace used for footwear closure.'),
-        ('textile', 'elastic_band', 'Elastic Band', 'meter', 'Elastic band used to provide stretch and flexibility in footwear components, improving fit and comfort.'),
-        ('hardware', 'shoe_nails', 'Shoe Nails', 'kg', 'Shoe nails used in footwear production.'),
+        ('hardware', 'black_shoe_lace', 'Black Shoe Lace', 'pair', 'Black shoe lace used for footwear closure.'),
+        ('textile', 'black_elastic_band', 'Black Elastic Band', 'meter', 'Black elastic band used to provide stretch and flexibility in footwear components, improving fit and comfort.'),
+        ('hardware', 'steel_shoe_nails', 'Steel Shoe Nails', 'kg', 'Steel shoe nails used in footwear production.'),
 
-        ('padding_material', 'dense_foam_material', 'Dense Foam Material', 'meter', 'Dense foam material used for padding, cushioning, and support in footwear components.'),
-        ('padding_material', 'soft_foam_sheet', 'Soft Foam Sheet', 'sheet', 'Soft foam sheet material used for padding and cushioning upper footwear components.')
+        ('padding_material', 'dense_foam_material_4_mm', 'Dense Foam Material 4 mm', 'meter', 'Dense foam material used for padding, cushioning, and support in footwear components.'),
+        ('padding_material', 'soft_foam_sheet_10_mm', 'Soft Foam Sheet 10 mm', 'sheet', 'Soft foam sheet material used for padding and cushioning upper footwear components.')
 ) as v(
     material_category_code,
     material_code,
@@ -582,6 +575,181 @@ from (
 )
 join material_categories mc
     on mc.material_category_code = v.material_category_code;
+
+insert into material_attribute_values (
+    material_id,
+    material_attribute_id,
+    value_text,
+    value_numeric,
+    value_boolean,
+    description
+)
+select
+    m.material_id,
+    ma.material_attribute_id,
+    v.value_text,
+    v.value_numeric,
+    v.value_boolean,
+    null
+from (
+    values
+        ('black_chrome_tanned_leather_1_4', 'color', 'black', null, null),
+        ('black_chrome_tanned_leather_1_4', 'thickness', null, 1.400, null),
+        ('black_chrome_tanned_leather_1_4', 'material_type', 'chrome_tanned_leather', null, null),
+        ('black_chrome_tanned_leather_1_4', 'composition', 'natural_leather', null, null),
+        ('black_chrome_tanned_leather_1_4', 'finish', 'smooth', null, null),
+        ('black_chrome_tanned_leather_1_4', 'water_resistance', null, null, false),
+
+        ('natural_vegetable_tanned_leather_2_0', 'color', 'natural', null, null),
+        ('natural_vegetable_tanned_leather_2_0', 'thickness', null, 2.000, null),
+        ('natural_vegetable_tanned_leather_2_0', 'material_type', 'vegetable_tanned_leather', null, null),
+        ('natural_vegetable_tanned_leather_2_0', 'composition', 'natural_leather', null, null),
+        ('natural_vegetable_tanned_leather_2_0', 'finish', 'smooth', null, null),
+        ('natural_vegetable_tanned_leather_2_0', 'water_resistance', null, null, false),
+
+        ('brown_oil_tanned_leather_1_8', 'color', 'brown', null, null),
+        ('brown_oil_tanned_leather_1_8', 'thickness', null, 1.800, null),
+        ('brown_oil_tanned_leather_1_8', 'material_type', 'oil_tanned_leather', null, null),
+        ('brown_oil_tanned_leather_1_8', 'composition', 'natural_leather', null, null),
+        ('brown_oil_tanned_leather_1_8', 'finish', 'oiled', null, null),
+        ('brown_oil_tanned_leather_1_8', 'water_resistance', null, null, true),
+
+        ('black_suede_1_2', 'color', 'black', null, null),
+        ('black_suede_1_2', 'thickness', null, 1.200, null),
+        ('black_suede_1_2', 'material_type', 'suede', null, null),
+        ('black_suede_1_2', 'composition', 'natural_leather', null, null),
+        ('black_suede_1_2', 'finish', 'suede', null, null),
+        ('black_suede_1_2', 'water_resistance', null, null, false),
+
+        ('brown_nubuck_1_4', 'color', 'brown', null, null),
+        ('brown_nubuck_1_4', 'thickness', null, 1.400, null),
+        ('brown_nubuck_1_4', 'material_type', 'nubuck', null, null),
+        ('brown_nubuck_1_4', 'composition', 'natural_leather', null, null),
+        ('brown_nubuck_1_4', 'finish', 'nubuck', null, null),
+        ('brown_nubuck_1_4', 'water_resistance', null, null, false),
+
+        ('black_synthetic_suede', 'color', 'black', null, null),
+        ('black_synthetic_suede', 'material_type', 'synthetic_suede', null, null),
+        ('black_synthetic_suede', 'composition', 'synthetic_material', null, null),
+        ('black_synthetic_suede', 'finish', 'suede_like', null, null),
+        ('black_synthetic_suede', 'water_resistance', null, null, false),
+
+        ('black_synthetic_leather_1_0', 'color', 'black', null, null),
+        ('black_synthetic_leather_1_0', 'thickness', null, 1.000, null),
+        ('black_synthetic_leather_1_0', 'material_type', 'synthetic_leather', null, null),
+        ('black_synthetic_leather_1_0', 'composition', 'synthetic_material', null, null),
+        ('black_synthetic_leather_1_0', 'finish', 'coated', null, null),
+        ('black_synthetic_leather_1_0', 'water_resistance', null, null, true),
+
+        ('black_textile_upper_fabric', 'color', 'black', null, null),
+        ('black_textile_upper_fabric', 'material_type', 'textile_upper_fabric', null, null),
+        ('black_textile_upper_fabric', 'composition', 'textile', null, null),
+        ('black_textile_upper_fabric', 'finish', 'woven', null, null),
+
+        ('beige_sheep_lining_leather_0_8', 'color', 'beige', null, null),
+        ('beige_sheep_lining_leather_0_8', 'thickness', null, 0.800, null),
+        ('beige_sheep_lining_leather_0_8', 'material_type', 'sheep_lining_leather', null, null),
+        ('beige_sheep_lining_leather_0_8', 'composition', 'sheep_leather', null, null),
+        ('beige_sheep_lining_leather_0_8', 'finish', 'smooth', null, null),
+
+        ('natural_goat_lining_leather_0_8', 'color', 'natural', null, null),
+        ('natural_goat_lining_leather_0_8', 'thickness', null, 0.800, null),
+        ('natural_goat_lining_leather_0_8', 'material_type', 'goat_lining_leather', null, null),
+        ('natural_goat_lining_leather_0_8', 'composition', 'goat_leather', null, null),
+        ('natural_goat_lining_leather_0_8', 'finish', 'smooth', null, null),
+
+        ('black_dense_textile_lining', 'color', 'black', null, null),
+        ('black_dense_textile_lining', 'material_type', 'dense_textile_lining', null, null),
+        ('black_dense_textile_lining', 'composition', 'textile', null, null),
+        ('black_dense_textile_lining', 'finish', 'dense_woven', null, null),
+
+        ('beige_textile_lining', 'color', 'beige', null, null),
+        ('beige_textile_lining', 'material_type', 'textile_lining', null, null),
+        ('beige_textile_lining', 'composition', 'textile', null, null),
+        ('beige_textile_lining', 'finish', 'woven', null, null),
+
+        ('natural_fur_lining', 'color', 'natural', null, null),
+        ('natural_fur_lining', 'material_type', 'natural_fur_lining', null, null),
+        ('natural_fur_lining', 'composition', 'natural_fur', null, null),
+        ('natural_fur_lining', 'finish', 'fur', null, null),
+
+        ('black_artificial_fur_lining', 'color', 'black', null, null),
+        ('black_artificial_fur_lining', 'material_type', 'artificial_fur_lining', null, null),
+        ('black_artificial_fur_lining', 'composition', 'synthetic_fur', null, null),
+        ('black_artificial_fur_lining', 'finish', 'fur', null, null),
+
+        ('solvent_activated_reinforcement_sheet_1_0', 'material_type', 'solvent_activated_reinforcement_sheet', null, null),
+        ('solvent_activated_reinforcement_sheet_1_0', 'composition', 'fiber_composite', null, null),
+        ('solvent_activated_reinforcement_sheet_1_0', 'thickness', null, 1.000, null),
+
+        ('thermoplastic_reinforcement_sheet_0_6', 'material_type', 'thermoplastic_reinforcement_sheet', null, null),
+        ('thermoplastic_reinforcement_sheet_0_6', 'composition', 'thermoplastic', null, null),
+        ('thermoplastic_reinforcement_sheet_0_6', 'thickness', null, 0.600, null),
+
+        ('white_backing_fabric', 'color', 'white', null, null),
+        ('white_backing_fabric', 'material_type', 'backing_fabric', null, null),
+        ('white_backing_fabric', 'composition', 'textile', null, null),
+        ('white_backing_fabric', 'finish', 'woven', null, null),
+
+        ('black_reinforcement_tape', 'color', 'black', null, null),
+        ('black_reinforcement_tape', 'material_type', 'reinforcement_tape', null, null),
+        ('black_reinforcement_tape', 'composition', 'textile', null, null),
+        ('black_reinforcement_tape', 'finish', 'woven', null, null),
+
+        ('chloroprene_adhesive', 'material_type', 'contact_adhesive', null, null),
+        ('chloroprene_adhesive', 'adhesive_base', 'chloroprene', null, null),
+        ('chloroprene_adhesive', 'composition', 'synthetic_rubber', null, null),
+        ('chloroprene_adhesive', 'drying_time', null, 15.000, null),
+
+        ('polyurethane_adhesive', 'material_type', 'polyurethane_adhesive', null, null),
+        ('polyurethane_adhesive', 'adhesive_base', 'polyurethane', null, null),
+        ('polyurethane_adhesive', 'composition', 'polyurethane', null, null),
+        ('polyurethane_adhesive', 'drying_time', null, 60.000, null),
+
+        ('rubber_adhesive', 'material_type', 'rubber_adhesive', null, null),
+        ('rubber_adhesive', 'adhesive_base', 'rubber', null, null),
+        ('rubber_adhesive', 'composition', 'natural_or_synthetic_rubber', null, null),
+        ('rubber_adhesive', 'drying_time', null, 5.000, null),
+
+        ('black_waxed_thread_6', 'color', 'black', null, null),
+        ('black_waxed_thread_6', 'material_type', 'waxed_thread', null, null),
+        ('black_waxed_thread_6', 'composition', 'polyester', null, null),
+        ('black_waxed_thread_6', 'thread_number', '6', null, null),
+
+        ('black_polyester_thread_40', 'color', 'black', null, null),
+        ('black_polyester_thread_40', 'material_type', 'polyester_thread', null, null),
+        ('black_polyester_thread_40', 'composition', 'polyester', null, null),
+        ('black_polyester_thread_40', 'thread_number', '40', null, null),
+
+        ('black_shoe_lace', 'color', 'black', null, null),
+        ('black_shoe_lace', 'material_type', 'shoe_lace', null, null),
+        ('black_shoe_lace', 'composition', 'polyester', null, null),
+
+        ('black_elastic_band', 'color', 'black', null, null),
+        ('black_elastic_band', 'material_type', 'elastic_band', null, null),
+        ('black_elastic_band', 'composition', 'elastic_textile', null, null),
+
+        ('steel_shoe_nails', 'material_type', 'shoe_nails', null, null),
+        ('steel_shoe_nails', 'composition', 'steel', null, null),
+
+        ('dense_foam_material_4_mm', 'material_type', 'dense_foam', null, null),
+        ('dense_foam_material_4_mm', 'composition', 'polyurethane_foam', null, null),
+        ('dense_foam_material_4_mm', 'thickness', null, 4.000, null),
+
+        ('soft_foam_sheet_10_mm', 'material_type', 'soft_foam', null, null),
+        ('soft_foam_sheet_10_mm', 'composition', 'polyurethane_foam', null, null),
+        ('soft_foam_sheet_10_mm', 'thickness', null, 10.000, null)
+) as v(
+    material_code,
+    material_attribute_code,
+    value_text,
+    value_numeric,
+    value_boolean
+)
+join materials m
+    on m.material_code = v.material_code
+join material_attributes ma
+    on ma.material_attribute_code = v.material_attribute_code;
 
 -- ======================================================================
 -- Shoe Model Master Data

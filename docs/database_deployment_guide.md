@@ -62,3 +62,4 @@ Current SQL execution order for this project:
 1. `database/ddl/01_reference_tables.sql`
 2. `database/dml/01_seed_data.sql`
 3. `database/data_migrations/001_add_padding_material_category.sql`
+4. `database/schema_migrations/001_update_shoe_models_classification_fields.sql`

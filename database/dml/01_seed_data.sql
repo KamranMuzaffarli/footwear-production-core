@@ -755,19 +755,175 @@ join material_attributes ma
 -- Shoe Model Master Data
 -- ======================================================================
 
-Сделать коммит после заполнения каждой таблицы
+-- Commit after completing this section
 
-✓
+-- shoe_model_classes
 
-shoe_models
-shoe_model_classes
+begin;
+
+create temp table tmp_shoe_model_seed (
+    seed_order int not null,
+    model_code varchar(60) not null,
+    model_name varchar(100) not null,
+    last_code varchar(60) not null,
+    footwear_category varchar(80) not null,
+    footwear_type varchar(80),
+    target_group varchar(40) not null,
+    description text,
+    is_active boolean not null
+) on commit drop;
+
+insert into tmp_shoe_model_seed (
+    seed_order,
+    model_code,
+    model_name,
+    last_code,
+    footwear_category,
+    footwear_type,
+    target_group,
+    description,
+    is_active
+)
+values
+    (1, '009-1-1', 'Model 009-1-1', 'E009', 'Shoes', 'Slip-on Shoes', 'Men', 'Slip-on shoes with concealed elastic side inserts and apron toe.', true),
+    (2, '009-1-2', 'Model 009-1-2', 'E009', 'Shoes', null, 'Men', null, false),
+    (3, '009-1-3', 'Model 009-1-3', 'E009', 'Shoes', null, 'Men', null, false),
+    (4, '009-1-4', 'Model 009-1-4', 'E009', 'Shoes', 'Derby Shoes', 'Men', 'Longwing Derby shoes with full brogue detailing.', true),
+
+    (5, '034-1-1', 'Model 034-1-1', '1034', 'Shoes', 'Derby Shoes', 'Men', 'Casual cap-toe Derby shoes.', false),
+    (6, '034-1-2', 'Model 034-1-2', '1034', 'Shoes', 'Derby Shoes', 'Men', 'Cap-toe Derby shoes.', true),
+    (7, '034-1-3', 'Model 034-1-3', '1034', 'Shoes', null, 'Men', null, false),
+    (8, '034-1-4', 'Model 034-1-4', '1034', 'Shoes', null, 'Men', null, false),
+    (9, '034-1-5', 'Model 034-1-5', '1034', 'Shoes', 'Oxford Shoes', 'Men', 'Cap-toe Oxford shoes with brogue detailing.', true),
+    (10, '034-1-6', 'Model 034-1-6', '1034', 'Shoes', 'Derby Shoes', 'Men', 'Wingtip Derby shoes with brogue detailing.', true),
+
+    (11, '816-1-1', 'Model 816-1-1', '3816', 'Shoes', 'Oxford Shoes', 'Men', 'Cap-toe Oxford shoes.', true),
+    (12, '816-1-2', 'Model 816-1-2', '3816', 'Shoes', 'Oxford Shoes', 'Men', 'Wingtip Oxford shoes with brogue detailing.', true),
+    (13, '816-1-3', 'Model 816-1-3', '3816', 'Shoes', 'Oxford Shoes', 'Men', 'Adelaide Oxford shoes with brogue detailing.', true),
+    (14, '816-1-4', 'Model 816-1-4', '3816', 'Shoes', 'Derby Shoes', 'Men', 'Wingtip Derby shoes without brogue detailing.', true),
+
+    (15, '397-1-1', 'Model 397-1-1', '5161397', 'Shoes', 'Slip-on Shoes', 'Women', 'Elastic gore slip-on shoes.', true),
+
+    (16, '302-2-1-BS', 'Model 302-2-1-BS', '302-T1', 'Light Footwear', 'Boat Shoes', 'Men', 'Boat shoes with moccasin construction.', false),
+    (17, '302-2-1', 'Model 302-2-1', '302-T1', 'Light Footwear', 'Moccasins', 'Men', 'Slip-on moccasins with apron toe.', true),
+    (18, '302-2-2', 'Model 302-2-2', '302-T1', 'Light Footwear', 'Moccasins', 'Men', 'Lace-up moccasins with apron toe.', false),
+
+    (19, '537-2-1', 'Model 537-2-1', '0537', 'Light Footwear', 'Moccasins', 'Men', 'Slip-on moccasins with apron toe and elastic gore.', true),
+    (20, '537-2-2', 'Model 537-2-2', '0537', 'Light Footwear', 'Moccasins', 'Men', 'Slip-on moccasins with apron toe.', true),
+
+    (21, '009-3-1-LB', 'Model 009-3-1-LB', 'E009', 'Boots', 'Casual Boots', 'Men', 'Slip-on boots with dual side zippers.', true),
+    (22, '009-3-2-LB', 'Model 009-3-2-LB', 'E009', 'Boots', 'Casual Boots', 'Men', 'Lace-up boots.', true),
+    (23, '009-3-1', 'Model 009-3-1', 'E009', 'Boots', 'Casual Boots', 'Men', 'Slip-on boots with dual side zippers.', true),
+    (24, '009-3-2', 'Model 009-3-2', 'E009', 'Boots', 'Casual Boots', 'Men', 'Lace-up cap-toe boots with side zipper.', true),
+    (25, '009-3-3', 'Model 009-3-3', 'E009', 'Boots', 'Casual Boots', 'Men', 'Slip-on boots with side zipper.', true),
+    (26, '009-3-4', 'Model 009-3-4', 'E009', 'Boots', 'Work Boots', 'Men', 'Lace-up cap-toe work boots with speed hooks.', true),
+    (27, '009-3-5', 'Model 009-3-5', 'E009', 'Boots', 'Work Boots', 'Men', 'Lace-up cap-toe work boots with speed hooks.', false),
+    (28, '009-3-6', 'Model 009-3-6', 'E009', 'Boots', 'Hiking Boots', 'Men', 'Lace-up hiking boots with padded collar.', true),
+
+    (29, '034-3-1', 'Model 034-3-1', '1034', 'Boots', 'Casual Boots', 'Men', 'Lace-up boots with padded collar.', true),
+    (30, '034-3-2', 'Model 034-3-2', '1034', 'Boots', 'Casual Boots', 'Men', 'Lace-up boots with side zipper and padded collar.', false),
+
+    (31, '191-3-1', 'Model 191-3-1', '1191-E1', 'Boots', 'Hiking Boots', 'Men', 'Lace-up hiking boots with speed hooks.', false),
+
+    (32, '816-3-1', 'Model 816-3-1', '3816', 'Boots', 'Chelsea Boots', 'Men', 'Chelsea boots with elastic side panels.', true),
+    (33, '816-3-2', 'Model 816-3-2', '3816', 'Boots', 'Casual Boots', 'Men', 'Lace-up wingtip brogue boots.', true),
+    (34, '816-3-3', 'Model 816-3-3', '3816', 'Boots', 'Casual Boots', 'Men', 'Lace-up wingtip brogue boots with speed hooks.', true),
+
+    (35, '011-3-1', 'Model 011-3-1', 'E011', 'Boots', 'Casual Boots', 'Kids', 'Lace-up cap-toe boots with side zipper.', true),
+    (36, '397-3-1', 'Model 397-3-1', '5161397', 'Boots', 'Casual Boots', 'Women', 'Slip-on boots with side zipper and elastic side panel.', true),
+
+    (37, '034-4-1', 'Model 034-4-1', '1034', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with T-toe overlay, heel counter overlay, and heavy decorative quarter-panel stitching.', true),
+
+    (38, '055-4-1', 'Model 055-4-1', '5055-T1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with one-piece upper and heel counter overlay.', true),
+    (39, '055-4-2', 'Model 055-4-2', '5055-T1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with Derby-style lacing, toe panel, and multilayer heel counter overlay.', false),
+    (40, '055-4-3', 'Model 055-4-3', '5055-T1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with T-toe overlay, one-piece quarter panel, and wing-shaped heel counter overlay.', false),
+    (41, '055-4-4', 'Model 055-4-4', '5055-T1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with wave-shaped toe overlay, diagonal side overlay, and multilayer heel counter.', false),
+    (42, '055-4-5', 'Model 055-4-5', '5055-T1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with Derby-style lacing, similarly shaped angular toe and heel overlays, and geometric quarter overlay.', false),
+
+    (43, '191-4-1', 'Model 191-4-1', '1191-E1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with wing-shaped toe overlay, one-piece quarter panel, and side overlay.', true),
+    (44, '191-4-2', 'Model 191-4-2', '1191-E1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with U-shaped toe overlay and large side overlay.', true),
+    (45, '191-4-3', 'Model 191-4-3', '1191-E1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with curved toe overlay, one-piece vamp-and-quarter construction, low-profile heel overlay, and heel pull tab.', true),
+    (46, '191-4-4', 'Model 191-4-4', '1191-E1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with curved toe overlay, intermediate quarter overlay, and heel counter overlay.', true),
+    (47, '191-4-5', 'Model 191-4-5', '1191-E1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with T-toe overlay, quarter overlay, and heel counter overlay.', false),
+    (48, '191-4-6', 'Model 191-4-6', '1191-E1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with asymmetrical curved toe overlay, asymmetrical eyestay overlay, side overlay, and matching heel overlay.', false),
+    (49, '191-4-7', 'Model 191-4-7', '1191-E1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with curved toe overlay, one-piece vamp-and-quarter construction, frame-style side overlays, and wing-shaped heel overlay.', false),
+    (50, '191-4-8', 'Model 191-4-8', '1191-E1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with one-piece vamp-and-quarter construction, wing-shaped heel overlay, and heel pull tab.', false),
+
+    (51, '537-4-1', 'Model 537-4-1', '0537', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with T-toe overlay, wide side overlay, and heel overlay.', true),
+
+    (52, '055-4-1-MC', 'Model 055-4-1-MC', '5055-T1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with U-shaped toe overlay, intermediate forefoot overlay, frame-style quarter overlays, asymmetrical multilayer eyestay construction, and wing-shaped heel overlay.', false),
+    (53, '055-4-2-MC', 'Model 055-4-2-MC', '5055-T1', 'Athletic Footwear', 'Sneakers', 'Men', 'Sneakers with curved wave-shaped toe overlay, one-piece vamp-and-quarter construction, extended eyestay overlay, and tapered heel overlay.', false),
+
+    (54, '009-6-1', 'Model 009-6-1', 'E009', 'Specialty Footwear', 'Military Boots', 'Men', 'Military boots with speed hook lacing and reinforced heel overlay.', true),
+    (55, '009-6-2', 'Model 009-6-2', 'E009', 'Specialty Footwear', 'Military Boots', 'Men', 'Military boots with speed hook lacing and inside zipper.', true),
+    (56, '009-6-3', 'Model 009-6-3', 'E009', 'Specialty Footwear', 'Military Boots', 'Men', 'Military boots with lace-up closure and padded collar.', true);
+
+do $$
+declare
+
+    missing_last_codes text;
+    duplicate_model_codes text;
+begin
+    select string_agg(last_code, ', ' order by last_code)
+    into missing_last_codes
+    from (
+        select distinct t.last_code
+        from tmp_shoe_model_seed t
+        left join shoe_lasts sl
+            on sl.last_code = t.last_code
+        where sl.shoe_last_id is null
+    ) as missing;
+
+    if missing_last_codes is not null then
+        raise exception 'Missing shoe_lasts for last_code(s): %', missing_last_codes;
+    end if;
+
+    select string_agg(model_code, ', ' order by model_code)
+    into duplicate_model_codes
+    from (
+        select model_code
+        from tmp_shoe_model_seed
+        group by model_code
+        having count(*) > 1
+    ) as duplicates;
+
+    if duplicate_model_codes is not null then
+        raise exception 'Duplicate model_code(s) in seed data: %', duplicate_model_codes;
+    end if;
+end $$;
+
+insert into shoe_models (
+    shoe_last_id,
+    model_code,
+    model_name,
+    footwear_category,
+    footwear_type,
+    target_group,
+    description,
+    is_active
+)
+select
+    sl.shoe_last_id,
+    t.model_code,
+    t.model_name,
+    t.footwear_category,
+    t.footwear_type,
+    t.target_group,
+    t.description,
+    t.is_active
+from tmp_shoe_model_seed t
+join shoe_lasts sl
+    on sl.last_code = t.last_code
+order by t.seed_order;
+
+commit;
 
 -- ======================================================================
 -- Production Composition Data
 -- ======================================================================
 
-Сделать коммит после заполнения каждой таблицы
+-- Commit after completing this section
 
 ✓
 
-shoe_model_class_materials
+-- shoe_model_class_materials

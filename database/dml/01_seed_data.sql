@@ -46,6 +46,8 @@ values
         true
     );
 
+-- ----------------------------------------------------------------------
+
 insert into material_categories (
     material_category_code,
     material_category_name,
@@ -113,6 +115,8 @@ values
         'Metal and plastic hardware components used in footwear production.',
         true
     );
+
+-- ----------------------------------------------------------------------
 
 insert into material_attributes (
     material_attribute_code,
@@ -243,6 +247,8 @@ values
         'Country where the material was produced.',
         true
     );
+
+-- ----------------------------------------------------------------------
 
 insert into material_usage_roles (
     material_role_code,
@@ -422,6 +428,8 @@ values
         true
     );
 
+-- ----------------------------------------------------------------------
+
 insert into shoe_last_sizes (
     shoe_last_id,
     size_value,
@@ -575,6 +583,8 @@ from (
 )
 join material_categories mc
     on mc.material_category_code = v.material_category_code;
+
+-- ----------------------------------------------------------------------
 
 insert into material_attribute_values (
     material_id,
@@ -914,7 +924,13 @@ order by t.seed_order;
 
 commit;
 
+-- ----------------------------------------------------------------------
+
 begin;
+
+-- ----------------------------------------------------------------------
+-- Model-Specific Class Assignments
+-- ----------------------------------------------------------------------
 
 insert into shoe_model_classes (
     shoe_model_id,
@@ -1039,7 +1055,10 @@ join shoe_models sm
 join shoe_construction_methods scm
     on scm.construction_method_code = v.construction_method_code;
 
--- Default Class C
+-- ----------------------------------------------------------------------
+-- Default Class C Assignment
+-- ----------------------------------------------------------------------
+
 insert into shoe_model_classes (
     shoe_model_id,
     construction_method_id,

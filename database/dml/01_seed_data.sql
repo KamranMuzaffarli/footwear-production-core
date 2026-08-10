@@ -755,10 +755,6 @@ join material_attributes ma
 -- Shoe Model Master Data
 -- ======================================================================
 
--- Commit after completing this section
-
--- shoe_model_classes
-
 begin;
 
 create temp table tmp_shoe_model_seed (
@@ -918,12 +914,177 @@ order by t.seed_order;
 
 commit;
 
+begin;
+
+insert into shoe_model_classes (
+    shoe_model_id,
+    construction_method_id,
+    class_code,
+    class_name,
+    quality_level,
+    warranty_months,
+    description,
+    is_active
+)
+select
+    sm.shoe_model_id,
+    scm.construction_method_id,
+    v.class_code,
+    v.class_name,
+    v.quality_level,
+    null,
+    v.description,
+    true
+from (
+    values
+        -- Class A
+        (
+            '009-3-4',
+            'welted',
+            'A',
+            'Premium Execution Standard',
+            'premium',
+            'Highest execution class with premium materials and construction requirements.'
+        ),
+        (
+            '816-3-3',
+            'welted',
+            'A',
+            'Premium Execution Standard',
+            'premium',
+            'Highest execution class with premium materials and construction requirements.'
+        ),
+
+        -- Class B
+        (
+            '034-1-5',
+            'cemented',
+            'B',
+            'High Execution Standard',
+            'high',
+            'High execution class with reinforced construction and high-quality material requirements.'
+        ),
+        (
+            '034-1-6',
+            'cemented',
+            'B',
+            'High Execution Standard',
+            'high',
+            'High execution class with reinforced construction and high-quality material requirements.'
+        ),
+        (
+            '009-3-2',
+            'cemented',
+            'B',
+            'High Execution Standard',
+            'high',
+            'High execution class with reinforced construction and high-quality material requirements.'
+        ),
+        (
+            '191-4-2',
+            'cemented',
+            'B',
+            'High Execution Standard',
+            'high',
+            'High execution class with reinforced construction and high-quality material requirements.'
+        ),
+        (
+            '191-4-4',
+            'cemented',
+            'B',
+            'High Execution Standard',
+            'high',
+            'High execution class with reinforced construction and high-quality material requirements.'
+        ),
+
+        -- Class D
+        (
+            '009-1-1',
+            'cemented',
+            'D',
+            'Economy Execution Standard',
+            'economy',
+            'Economy execution class with natural-leather upper and simplified internal construction.'
+        ),
+
+        -- Class D-S
+        (
+            '055-4-1',
+            'cemented',
+            'D-S',
+            'Economy Synthetic Execution Standard',
+            'economy',
+            'Synthetic-upper variant of the Class D economy execution standard.'
+        ),
+
+        -- Class TX
+        (
+            '191-4-3',
+            'strobel',
+            'TX',
+            'Textile Construction Standard',
+            'technology_specific',
+            'Technology-specific production standard for textile footwear using Strobel construction.'
+        )
+) as v(
+    model_code,
+    construction_method_code,
+    class_code,
+    class_name,
+    quality_level,
+    description
+)
+join shoe_models sm
+    on sm.model_code = v.model_code
+join shoe_construction_methods scm
+    on scm.construction_method_code = v.construction_method_code;
+
+-- Default Class C
+insert into shoe_model_classes (
+    shoe_model_id,
+    construction_method_id,
+    class_code,
+    class_name,
+    quality_level,
+    warranty_months,
+    description,
+    is_active
+)
+select
+    sm.shoe_model_id,
+    scm.construction_method_id,
+    'C',
+    'Standard Execution Standard',
+    'standard',
+    null,
+    'Standard execution class for leather footwear with conventional materials and cemented construction.',
+    true
+from shoe_models sm
+join shoe_construction_methods scm
+    on scm.construction_method_code = 'cemented'
+where sm.model_code not in (
+    -- Class A only
+    '009-3-4',
+    '816-3-3',
+
+    -- Class B only
+    '191-4-2',
+    '191-4-4',
+
+    -- Class D only
+    '009-1-1',
+
+    -- Class D-S only
+    '055-4-1',
+
+    -- Class TX only
+    '191-4-3'
+);
+
+commit;
+
 -- ======================================================================
 -- Production Composition Data
 -- ======================================================================
-
--- Commit after completing this section
-
-✓
 
 -- shoe_model_class_materials

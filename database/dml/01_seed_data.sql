@@ -1106,4 +1106,167 @@ commit;
 -- Production Composition Data
 -- ======================================================================
 
--- shoe_model_class_materials
+insert into shoe_model_class_materials (
+    shoe_model_class_id,
+    material_id,
+    material_usage_role_id,
+    consumption_quantity,
+    consumption_unit,
+    is_required,
+    description,
+    is_active
+)
+select
+    smc.shoe_model_class_id,
+    m.material_id,
+    mur.material_usage_role_id,
+    null,
+    null,
+    true,
+    v.description,
+    true
+from (
+    values
+        -- Class A
+        (
+            'A',
+            'black_chrome_tanned_leather_1_4',
+            'upper',
+            'Representative natural leather upper material for Class A.'
+        ),
+        (
+            'A',
+            'beige_sheep_lining_leather_0_8',
+            'lining',
+            'Representative natural leather lining material for Class A.'
+        ),
+        (
+            'A',
+            'thermoplastic_reinforcement_sheet_0_6',
+            'reinforcement',
+            'Representative structural reinforcement material for Class A.'
+        ),
+
+        -- Class B
+        (
+            'B',
+            'black_chrome_tanned_leather_1_4',
+            'upper',
+            'Representative natural leather upper material for Class B.'
+        ),
+        (
+            'B',
+            'beige_sheep_lining_leather_0_8',
+            'lining',
+            'Representative natural leather lining material for Class B.'
+        ),
+        (
+            'B',
+            'thermoplastic_reinforcement_sheet_0_6',
+            'reinforcement',
+            'Representative structural reinforcement material for Class B.'
+        ),
+
+        -- Class C
+        (
+            'C',
+            'black_chrome_tanned_leather_1_4',
+            'upper',
+            'Representative natural leather upper material for Class C.'
+        ),
+        (
+            'C',
+            'beige_sheep_lining_leather_0_8',
+            'lining',
+            'Representative natural leather lining material for Class C.'
+        ),
+        (
+            'C',
+            'thermoplastic_reinforcement_sheet_0_6',
+            'reinforcement',
+            'Representative structural reinforcement material for Class C.'
+        ),
+
+        -- Class D
+        (
+            'D',
+            'black_chrome_tanned_leather_1_4',
+            'upper',
+            'Representative natural leather upper material for Class D.'
+        ),
+        (
+            'D',
+            'black_synthetic_leather_1_0',
+            'lining',
+            'Representative synthetic lining material for Class D.'
+        ),
+        (
+            'D',
+            'solvent_activated_reinforcement_sheet_1_0',
+            'reinforcement',
+            'Representative structural reinforcement material for Class D.'
+        ),
+        (
+            'D',
+            'black_polyester_thread_40',
+            'thread',
+            'Representative stitching thread for Class D.'
+        ),
+
+        -- Class D-S
+        (
+            'D-S',
+            'black_synthetic_leather_1_0',
+            'upper',
+            'Representative synthetic leather upper material for Class D-S.'
+        ),
+        (
+            'D-S',
+            'black_dense_textile_lining',
+            'lining',
+            'Representative textile lining material for Class D-S.'
+        ),
+        (
+            'D-S',
+            'thermoplastic_reinforcement_sheet_0_6',
+            'reinforcement',
+            'Representative structural reinforcement material for Class D-S.'
+        ),
+        (
+            'D-S',
+            'black_polyester_thread_40',
+            'thread',
+            'Representative stitching thread for Class D-S.'
+        ),
+
+        -- Class TX
+        (
+            'TX',
+            'black_textile_upper_fabric',
+            'upper',
+            'Representative textile upper material for the TX construction standard.'
+        ),
+        (
+            'TX',
+            'black_dense_textile_lining',
+            'lining',
+            'Representative textile lining material for the TX construction standard.'
+        ),
+        (
+            'TX',
+            'thermoplastic_reinforcement_sheet_0_6',
+            'reinforcement',
+            'Representative structural reinforcement material for the TX construction standard.'
+        )
+) as v(
+    class_code,
+    material_code,
+    material_role_code,
+    description
+)
+join shoe_model_classes smc
+    on smc.class_code = v.class_code
+join materials m
+    on m.material_code = v.material_code
+join material_usage_roles mur
+    on mur.material_role_code = v.material_role_code;
